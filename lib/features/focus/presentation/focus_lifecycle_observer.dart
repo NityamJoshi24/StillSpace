@@ -27,7 +27,7 @@ class _FocusLifecycleObserverState extends ConsumerState<FocusLifecycleObserver>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
    if( state == AppLifecycleState.paused || state == AppLifecycleState.inactive) {
-     ref.read(focusControlProvider.notifier).end(ref);
+     ref.read(focusControlProvider.notifier).endFocus();
    }
   }
 

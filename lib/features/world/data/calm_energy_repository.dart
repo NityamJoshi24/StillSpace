@@ -12,6 +12,6 @@ class CalmEnergyRepository{
 
   Future<void> save(CalmEnergy energy) async {
     final box = await Hive.openBox<int>(_boxName);
-    await box.put('total' , energy.total);
+    await box.put('total' , energy.amount);
   }
 }

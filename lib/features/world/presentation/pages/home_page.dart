@@ -4,7 +4,6 @@ import 'package:stillspace/features/focus/presentation/focus_providers.dart';
 import 'package:stillspace/features/presence/presentation/widgets/presence_widget.dart';
 import 'package:stillspace/features/sound/presentation/widgets/calm_button.dart';
 import 'package:stillspace/features/world/presentation/widgets/world_background.dart';
-import 'package:just_audio/just_audio.dart';
 
 import '../../../focus/domain/entities/focus_state.dart';
 
@@ -21,15 +20,15 @@ class HomePage extends ConsumerWidget{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              PresenceWidget(),
-              SizedBox(height: 40,),
+              const PresenceWidget(),
+              const SizedBox(height: 40,),
               Text(
                 focus.state == FocusState.focusing
                 ? 'Stay here for a while'
                 : 'Take a quick moment',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               CalmButton(
                 label: focus.state == FocusState.focusing
                     ? 'End Focus'
@@ -37,13 +36,13 @@ class HomePage extends ConsumerWidget{
                 onTap: () {
                   final controller = ref.read(focusControlProvider.notifier);
                   if(focus.state == FocusState.focusing) {
-                    controller.end(ref);
+                    controller.endFocus();
                   } else {
-                    controller.start(Duration(minutes: 25));
+                    controller.startFocus();
                   }
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Text(

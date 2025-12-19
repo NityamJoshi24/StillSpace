@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CalmButton extends StatelessWidget {
@@ -11,9 +10,9 @@ class CalmButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         decoration: BoxDecoration(
-          color: Color(0xFF8E9AAF),
+          color: const Color(0xFF8E9AAF),
           borderRadius: BorderRadius.circular(30),
         ),
         child: Text(label,

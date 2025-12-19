@@ -19,15 +19,15 @@ class _PresenceWidgetState extends State<PresenceWidget>
     super.initState();
 
     floatController = AnimationController(vsync: this,
-    duration: Duration(seconds: 10)
+    duration: const Duration(seconds: 10)
     )..repeat(reverse: true);
 
     breatheController = AnimationController(vsync: this,
-        duration: Duration(seconds: 6)
+        duration: const Duration(seconds: 6)
     )..repeat(reverse: true);
 
     glowController = AnimationController(vsync: this,
-        duration: Duration(seconds: 8)
+        duration: const Duration(seconds: 8)
     )..repeat(reverse: true);
   }
 
@@ -50,8 +50,6 @@ class _PresenceWidgetState extends State<PresenceWidget>
       builder: (_, __) {
         final floatY = -8 + (floatController.value * 16);
         final scale = 0.95 + (breatheController.value * 0.08);
-        final glow = 0.4 + (glowController.value * 0.3);
-
 
         return Transform.translate(
           offset: Offset(

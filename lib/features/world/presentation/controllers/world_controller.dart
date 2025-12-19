@@ -14,13 +14,14 @@ class WorldController extends StateNotifier<WorldState> {
 
   Future<void> _load() async {
     final energy = await repository.load();
-    state = state.copyWith(calmEnergy: energy);
+    state = state.copyWith(energy: energy);
   }
 
-  Future<void> addEnergy(CalmEnergy energy) async {
-    final updated = state.calmEnergy.add(energy.value);
+  /// World only applies rewards — it does NOT calculate them
+  Future<void> addEnergy(CalmEnergy reward) async {
+    final updated = state.energy.add(reward.amount);
 
-    state = state.copyWith(calmEnergy: updated);
+    state = state.copyWith(energy: updated);
     await repository.save(updated);
   }
 }

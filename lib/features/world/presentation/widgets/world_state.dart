@@ -1,21 +1,19 @@
 import '../../domain/entities/calm_energy.dart';
 
 class WorldState {
-  final CalmEnergy calmEnergy;
+  final CalmEnergy energy;
 
-  const WorldState({required this.calmEnergy});
+  const WorldState(this.energy);
 
   factory WorldState.initial() {
-    return const WorldState(
-      calmEnergy: CalmEnergy(0),
-    );
+    return const WorldState(CalmEnergy(0));
   }
 
   WorldState copyWith({
-    CalmEnergy? calmEnergy,
+    CalmEnergy? energy,
   }) {
     return WorldState(
-      calmEnergy: calmEnergy ?? this.calmEnergy,
+      energy ?? this.energy,
     );
   }
 }
