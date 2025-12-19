@@ -1,7 +1,21 @@
-import 'package:stillspace/features/world/domain/entities/calm_energy.dart';
+import '../../domain/entities/calm_energy.dart';
 
 class WorldState {
-  final CalmEnergy energy;
+  final CalmEnergy calmEnergy;
 
-  const WorldState(this.energy);
+  const WorldState({required this.calmEnergy});
+
+  factory WorldState.initial() {
+    return const WorldState(
+      calmEnergy: CalmEnergy(0),
+    );
+  }
+
+  WorldState copyWith({
+    CalmEnergy? calmEnergy,
+  }) {
+    return WorldState(
+      calmEnergy: calmEnergy ?? this.calmEnergy,
+    );
+  }
 }

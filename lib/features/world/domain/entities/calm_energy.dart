@@ -1,9 +1,9 @@
-class CalmEnergy{
-  final int total;
+class CalmEnergy {
+  final int value;
 
-  CalmEnergy(this.total);
+  const CalmEnergy(this.value);
 
-  CalmEnergy add(int amount){
-    return CalmEnergy(total + amount);
+  CalmEnergy add(int amount) {
+    return CalmEnergy(value + amount);
   }
 }
